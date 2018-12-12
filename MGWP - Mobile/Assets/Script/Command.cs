@@ -11,23 +11,30 @@ public class Command : MonoBehaviour {
     public float timer;
     public float timeLimit = 10f;
 
+    float timerTemp;
+    bool roundDone = true;
+
     public Text commandText;
     public Text timeText;
+    public int roundGone = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         commandsArray[0] = "Take Blue Ball";
         commandsArray[1] = "Take Black Ball";
         commandsArray[2] = "Take Green Ball";
+        
+        timer = timeLimit;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         timeText.text = FormatTimer(timer);
-        if (timer == timeLimit)
+        if (roundDone == true)
         {
             arrayNum = Random.Range(0, commandsArray.Length);
+            roundDone = false;
         }
         timer -= Time.deltaTime;
         if (timer > 0)
@@ -42,8 +49,16 @@ public class Command : MonoBehaviour {
 
     public void Ended()
     {
-        timeLimit -= Random.Range (-2f, 2f);
-        timer = timeLimit;
+        timerTemp = timeLimit - (timer - timeLimit);
+        timer = timerTemp;
+        roundDone = true;
+        roundGone++;
+        if (roundGone > 0)
+        {
+            Character.health--;
+        }
+        Debug.Log(roundGone);
+        Debug.Log(Character.health);
     }
     public string FormatTimer(float timer)
     {

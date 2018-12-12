@@ -11,12 +11,15 @@ public class Character : MonoBehaviour {
     public bool done = false;
     public GameObject[] balls;
     public JoyStickScript joystick;
+    public GameObject actionButton;
+    public static int health = 4;
 
     Command commandScript;
     Rigidbody2D rb;
     float movSpeed = 3;
     Animator anim;
     Vector2 direction;
+    ActionButtonScript actionScript;
 
 
     // Use this for initialization
@@ -25,6 +28,7 @@ public class Character : MonoBehaviour {
         this.gameObject.transform.position = spawnPoint.transform.position;
         commandScript = spawnPoint.GetComponent<Command>();
         anim = GetComponent<Animator>();
+        actionScript = actionButton.GetComponent<ActionButtonScript>();
     }
 
     // Update is called once per frame
@@ -80,70 +84,42 @@ public class Character : MonoBehaviour {
         {
             anim.SetBool("moving", false);
         }
-
-        /*if (Input.GetKey("w"))
-        {
-            anim.SetBool("up", true);
-            anim.SetBool("moving", true);
-            anim.SetBool("left", false);
-            anim.SetBool("right", false);
-            anim.SetBool("down", false);
-            rb.velocity = new Vector2(rb.velocity.x, movSpeed);
-        }
-        if (Input.GetKey("s"))
-        {
-            anim.SetBool("down", true);
-            anim.SetBool("moving", true);
-            anim.SetBool("left", false);
-            anim.SetBool("right", false);
-            anim.SetBool("up", false);
-            rb.velocity = new Vector2(rb.velocity.x, -movSpeed);
-        }
-        if (Input.GetKey("a"))
-        {
-            anim.SetBool("left", true);
-            anim.SetBool("moving", true);
-            anim.SetBool("up", false);
-            anim.SetBool("right", false);
-            anim.SetBool("down", false);
-            rb.velocity = new Vector2(-movSpeed, rb.velocity.y);
-        }
-        if (Input.GetKey("d"))
-        {
-            anim.SetBool("right", true);
-            anim.SetBool("moving", true);
-            anim.SetBool("left", false);
-            anim.SetBool("up", false);
-            anim.SetBool("down", false);
-            rb.velocity = new Vector2(movSpeed, rb.velocity.y);
-        }
-        if (!Input.anyKey)
-        {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0;
-            anim.SetBool("moving", false);
-        }*/
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Item")
         {
             if (commandScript.arrayNum == 0 && collision.gameObject.name == "Blue Ball")
             {
-                endPoints();
+                if (actionScript.action == true)
+                {
+                    commandScript.Ended();
+                    points++;
+                    Debug.Log("Command jalan");
+                }
             }
             if (commandScript.arrayNum == 1 && collision.gameObject.name == "Black Ball")
             {
-                endPoints();
+                if (actionScript.action == true)
+                {
+                    commandScript.Ended();
+                    points++;
+                    Debug.Log("Command jalan");
+                }
             }
             if (commandScript.arrayNum == 2 && collision.gameObject.name == "Green Ball")
             {
-                endPoints();
+                if (actionScript.action == true)
+                {
+                    commandScript.Ended();
+                    points++;
+                    Debug.Log("Command jalan");
+                }
             }
         }
     }
 
-    void endPoints()
+    /*void endPoints()
     {
         done = true;
         points++;
@@ -157,6 +133,5 @@ public class Character : MonoBehaviour {
             done = false;
             commandScript.Ended();
         }
-    }
-
+    }*/
 }

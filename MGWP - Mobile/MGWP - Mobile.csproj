@@ -297,8 +297,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\ActionButtonScript.cs" />
     <Compile Include="Assets\Script\Character.cs" />
     <Compile Include="Assets\Script\Command.cs" />
+    <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\JoyStickScript.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
@@ -321,6 +323,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Character Sprites\Readme.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\Tes Map.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\new.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\License.txt" />

@@ -350,6 +350,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Character Sprites\Readme.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\Tes Map.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\new.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\License.txt" />

@@ -302,6 +302,9 @@
     <Compile Include="Assets\Script\Command.cs" />
     <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\JoyStickScript.cs" />
+    <Compile Include="Assets\Script\MenuOnclick.cs" />
+    <Compile Include="Assets\Script\MouseButton.cs" />
+    <Compile Include="Assets\Script\Task.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />
